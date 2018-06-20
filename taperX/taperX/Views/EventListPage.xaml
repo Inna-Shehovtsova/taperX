@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="taperX.Views.EventListPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="mainStackLayout">
+            <StackLayout.Children>
+
+                <ListView x:Name="EventList" ItemsSource="{Binding ToDoListView}"
+              SelectedItem="{Binding SelectedEvent, Mode=TwoWay}" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout>
+                                        <Label Text="{Binding Title}" FontSize="Medium" />
+                                        <Label Text="{Binding Description}" FontSize="Small" />
+                                        <Label Text="{Binding Start}" FontSize="Small" />
+                                        <Label Text="{Binding End}" FontSize="Small" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout.Children>
+                    <Button  Text="Добавить" x:Name="AddEvent"  Command="{Binding AddNewCommand}"  CommandParameter="{Binding}"/>
+                    <Button  Text="Обновить" x:Name="Refresh"  Command="{Binding Refresh}"  CommandParameter="{Binding}"/>
+            </StackLayout.Children>
+        </StackLayout>
+            </StackLayout.Children>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
